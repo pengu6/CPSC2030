@@ -12,3 +12,19 @@ def check_winner(board , player):
     all([board[i][2 - i] == player for i in range(3)]):
         return True
     return False
+
+def is_board_full(board):
+    return all([board[i][j] != " " for i in range(3) for j in range(3)])
+
+
+def player_input(board, player):
+    while True:
+        try:
+            move = int(input(f"Player {player}, enter your move (1-9): ")) - 1
+            row, col = divmod(move, 3)
+            if 0 <= move <= 8 and board[row][col] == " ":
+                return row, col
+            else:
+                print("Invalid move. Try again.")
+        except ValueError:
+            print("Invalid input. Enter a number between 1 and 9.")
