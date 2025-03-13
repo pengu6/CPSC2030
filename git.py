@@ -28,3 +28,12 @@ def player_input(board, player):
                 print("Invalid move. Try again.")
         except ValueError:
             print("Invalid input. Enter a number between 1 and 9.")
+
+def play_tic_tac_toe():
+    board = [[" " for _ in range(3)] for _ in range(3)]
+    current_player = "X"
+    
+    while True:
+        print_board(board)
+        row, col = player_input(board, current_player)
+        board[row][col] = current_player

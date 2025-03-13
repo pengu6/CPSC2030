@@ -1,0 +1,59 @@
+@startuml
+abstract class Action {
+    +execute(): void
+}
+
+class Move {
+    +direction: str
+    +execute(): void
+}
+
+class Attack {
+    +x: int
+    +y: int
+    +damage: int
+    +execute(): void
+}
+
+abstract class BattleBot {
+    #name: str
+    #x: int
+    #y: int
+    #hp: int
+    #facing: str
+    +get_possible_moves(): list[str]
+    +get_attacks(): list[Attack]
+    +get_actions(obstacles: list, bots: list): list[Action]
+}
+
+class ZapBot {
+    +get_attacks(): list[Attack]
+}
+
+class SmashBot {
+    +get_attacks(): list[Attack]
+}
+
+class FlameBot {
+    +get_attacks(): list[Attack]
+}
+
+class SuperBot {
+    +get_attacks(): list[Attack]
+}
+
+class AngryBot {
+    +get_actions(obstacles: list, bots: list): list[Action]
+}
+
+' Inheritance relationships
+Action <|-- Move
+Action <|-- Attack
+BattleBot <|-- ZapBot
+BattleBot <|-- SmashBot
+BattleBot <|-- FlameBot
+ZapBot <|-- SuperBot
+SmashBot <|-- SuperBot
+FlameBot <|-- SuperBot
+SuperBot <|-- AngryBot
+@enduml
