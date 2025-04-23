@@ -1,0 +1,11 @@
+Virtual library system
+
+In this project I decided to make a Virtual library system that allows you to see who borrowed a book, who reserved a book, view their library cards, and finally see the reviews left on said book.
+
+In here I used multiple principles I learned throughout the year such as inheritance, encapsulation, and abstraction.
+
+Attached in the folder below i included a simple script that shows a brief demo of what the program does. I also included the code for the puml file which shows the realtionship of the classes, and i also added the png of what the realtionship looks like unsing plant.uml
+
+
+To run the code, make sure you install both the final_project_cs2 file and the script.py file to be able to see what the code does. 
+I also include a interactive file to where you can "pick" a book from the library. Meaning you input the authors name, email, biography...etc, and it shows you 

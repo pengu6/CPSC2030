@@ -1,0 +1,84 @@
+@startuml
+abstract class Person {
+  - name: String
+  - email: String
+  + get_role(): String
+}
+
+class Author {
+  - biography: String
+  + get_role(): String
+}
+
+class Member {
+  - member_id: int
+  - borrowed_books: List<Book>
+  + borrow_book(book: Book)
+  + get_borrowed_books(): List<Book>
+  + get_role(): String
+}
+
+class Librarian {
+  - employee_id: int
+  + get_role(): String
+}
+
+class Book {
+  - title: String
+  - isbn: String
+}
+
+class EBook {
+  - file_format: String
+}
+
+class PrintedBook {
+  - pages: int
+}
+
+class Library {
+  - name: String
+  - books: List<Book>
+  - members: List<Member>
+  - librarians: List<Librarian>
+  + add_book(book: Book)
+  + add_member(member: Member)
+  + add_librarian(librarian: Librarian)
+  + get_books(): List<Book>
+}
+
+class LibraryCard {
+  - card_number: int
+}
+
+class Reservation {
+}
+
+class Review {
+  - rating: int
+  - comment: String
+}
+
+class Genre {
+  - name: String
+  - description: String
+}
+
+Person <|-- Author
+Person <|-- Member
+Person <|-- Librarian
+
+Book <|-- EBook
+Book <|-- PrintedBook
+
+Author --> Book
+Book --> Genre
+Member --> Reservation
+Member --> Review
+Member --> LibraryCard
+Library --> Book
+Library --> Member
+Library --> Librarian
+Reservation --> Book
+Review --> Book
+@enduml
